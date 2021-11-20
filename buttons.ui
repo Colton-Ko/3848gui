@@ -58,12 +58,12 @@
             <child>
               <object class="tk.Button" id="button1">
                 <property name="background">#34495e</property>
-                <property name="borderwidth">0</property>
                 <property name="font">{Noto Sans} 12 {}</property>
                 <property name="foreground">#ecf0f1</property>
                 <property name="relief">flat</property>
                 <property name="takefocus">false</property>
                 <property name="text" translatable="yes">Gesture Recognition</property>
+                <bind add="" handler="inference" sequence="&lt;1&gt;" />
                 <layout manager="pack">
                   <property name="ipady">10</property>
                   <property name="pady">5</property>
@@ -73,13 +73,14 @@
               </object>
             </child>
             <child>
-              <object class="tk.Button" id="button2">
+              <object class="tk.Button" id="button5">
                 <property name="background">#34495e</property>
                 <property name="font">{Noto Sans} 12 {}</property>
                 <property name="foreground">#ecf0f1</property>
                 <property name="relief">flat</property>
-                <property name="takefocus">false</property>
-                <property name="text" translatable="yes">Track a Santa Clause</property>
+                <property name="text" translatable="yes">Start web server</property>
+                <bind add="" handler="" sequence="" />
+                <bind add="" handler="" sequence="" />
                 <layout manager="pack">
                   <property name="ipady">10</property>
                   <property name="pady">5</property>
@@ -89,32 +90,15 @@
               </object>
             </child>
             <child>
-              <object class="tk.Button" id="button3">
+              <object class="tk.Button" id="button6">
                 <property name="background">#34495e</property>
                 <property name="font">{Noto Sans} 12 {}</property>
                 <property name="foreground">#ecf0f1</property>
-                <property name="relief">flat</property>
-                <property name="takefocus">true</property>
-                <property name="text" translatable="yes">Settings</property>
-                <layout manager="pack">
-                  <property name="ipady">10</property>
-                  <property name="pady">5</property>
-                  <property name="propagate">True</property>
-                  <property name="side">top</property>
-                </layout>
-              </object>
-            </child>
-            <child>
-              <object class="tk.Button" id="button4">
-                <property name="background">#34495e</property>
-                <property name="font">{Noto Sans} 12 {}</property>
-                <property name="foreground">#ecf0f1</property>
-                <property name="relief">flat</property>
                 <property name="text" translatable="yes">Exit</property>
                 <layout manager="pack">
                   <property name="ipady">10</property>
                   <property name="pady">5</property>
-                  <property name="propagate">True</property>
+                  <property name="propagate">False</property>
                   <property name="side">top</property>
                 </layout>
               </object>
