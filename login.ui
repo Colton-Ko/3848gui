@@ -1,0 +1,196 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.1">
+  <object class="ttk.Frame" id="mainwindow">
+    <property name="borderwidth">2</property>
+    <property name="cursor">arrow</property>
+    <property name="height">480</property>
+    <property name="padding">20</property>
+    <property name="relief">flat</property>
+    <property name="width">640</property>
+    <layout manager="pack">
+      <property name="propagate">False</property>
+      <property name="side">top</property>
+    </layout>
+    <child>
+      <object class="ttk.Label" id="label1">
+        <property name="cursor">arrow</property>
+        <property name="font">{Noto Sans} 12 {bold}</property>
+        <property name="justify">left</property>
+        <property name="padding">0</property>
+        <property name="state">normal</property>
+        <property name="text" translatable="yes">ELEC3848 Project Demo</property>
+        <layout manager="pack">
+          <property name="pady">5</property>
+          <property name="propagate">True</property>
+          <property name="side">top</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Label" id="label2">
+        <property name="font">{Noto Sans} 11 {}</property>
+        <property name="text" translatable="yes">Enter Passcode</property>
+        <layout manager="pack">
+          <property name="pady">7</property>
+          <property name="propagate">True</property>
+          <property name="side">top</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Entry" id="entry2">
+        <property name="justify">center</property>
+        <property name="takefocus">false</property>
+        <layout manager="pack">
+          <property name="pady">15</property>
+          <property name="propagate">True</property>
+          <property name="side">top</property>
+        </layout>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Frame" id="frame3">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout manager="pack">
+          <property name="pady">15</property>
+          <property name="propagate">True</property>
+          <property name="side">top</property>
+        </layout>
+        <child>
+          <object class="ttk.Button" id="button1">
+            <property name="text" translatable="yes">1</property>
+            <layout manager="pack">
+              <property name="padx">20</property>
+              <property name="propagate">True</property>
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="button2">
+            <property name="text" translatable="yes">2</property>
+            <layout manager="pack">
+              <property name="padx">20</property>
+              <property name="propagate">True</property>
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="button3">
+            <property name="text" translatable="yes">3</property>
+            <layout manager="pack">
+              <property name="padx">20</property>
+              <property name="propagate">True</property>
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Frame" id="frame5">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout manager="pack">
+          <property name="pady">15</property>
+          <property name="propagate">True</property>
+          <property name="side">top</property>
+        </layout>
+        <child>
+          <object class="ttk.Button" id="button4">
+            <property name="text" translatable="yes">4</property>
+            <layout manager="pack">
+              <property name="padx">20</property>
+              <property name="propagate">True</property>
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="button5">
+            <property name="text" translatable="yes">5</property>
+            <layout manager="pack">
+              <property name="padx">20</property>
+              <property name="propagate">True</property>
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="button6">
+            <property name="text" translatable="yes">6</property>
+            <layout manager="pack">
+              <property name="padx">20</property>
+              <property name="propagate">True</property>
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Frame" id="frame7">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout manager="pack">
+          <property name="pady">15</property>
+          <property name="propagate">True</property>
+          <property name="side">top</property>
+        </layout>
+        <child>
+          <object class="ttk.Button" id="button7">
+            <property name="text" translatable="yes">7</property>
+            <layout manager="pack">
+              <property name="padx">20</property>
+              <property name="propagate">True</property>
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="button8">
+            <property name="text" translatable="yes">8</property>
+            <layout manager="pack">
+              <property name="padx">20</property>
+              <property name="propagate">True</property>
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="ttk.Button" id="button9">
+            <property name="text" translatable="yes">9</property>
+            <layout manager="pack">
+              <property name="padx">20</property>
+              <property name="propagate">True</property>
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="ttk.Frame" id="frame8">
+        <property name="height">200</property>
+        <property name="width">200</property>
+        <layout manager="pack">
+          <property name="pady">15</property>
+          <property name="propagate">True</property>
+          <property name="side">top</property>
+        </layout>
+        <child>
+          <object class="ttk.Button" id="button0">
+            <property name="text" translatable="yes">0</property>
+            <layout manager="pack">
+              <property name="padx">20</property>
+              <property name="propagate">True</property>
+              <property name="side">left</property>
+            </layout>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

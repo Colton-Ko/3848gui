@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='utf-8'?>
+<interface version="1.1">
+  <object class="tk.Toplevel" id="toplevel1">
+    <property name="geometry">640x480</property>
+    <property name="height">480</property>
+    <property name="maxsize">480|640</property>
+    <property name="minsize">480|640</property>
+    <property name="resizable">none</property>
+    <property name="title" translatable="yes">ELEC3848 Proejct Demo</property>
+    <property name="width">640</property>
+    <child>
+      <object class="tk.Frame" id="mainwindow">
+        <property name="background">#ecf0f1</property>
+        <property name="cursor">arrow</property>
+        <property name="height">480</property>
+        <property name="width">640</property>
+        <layout manager="pack">
+          <property name="propagate">False</property>
+          <property name="side">top</property>
+        </layout>
+        <child>
+          <object class="tk.Label" id="label1">
+            <property name="background">#ecf0f1</property>
+            <property name="font">{Noto Sans} 16 {}</property>
+            <property name="foreground">#2c3e50</property>
+            <property name="text" translatable="yes">ELEC3848 Project Demo</property>
+            <layout manager="pack">
+              <property name="anchor">center</property>
+              <property name="pady">20</property>
+              <property name="propagate">True</property>
+              <property name="side">top</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Label" id="label2">
+            <property name="background">#ecf0f1</property>
+            <property name="font">{Noto Sans} 12 {}</property>
+            <property name="foreground">#2c3e50</property>
+            <property name="text" translatable="yes">Click on the desired feature to demonstrate.</property>
+            <layout manager="pack">
+              <property name="pady">7</property>
+              <property name="propagate">True</property>
+              <property name="side">top</property>
+            </layout>
+          </object>
+        </child>
+        <child>
+          <object class="tk.Frame" id="frame2">
+            <property name="background">#ecf0f1</property>
+            <property name="height">200</property>
+            <property name="width">200</property>
+            <layout manager="pack">
+              <property name="pady">15</property>
+              <property name="propagate">True</property>
+              <property name="side">top</property>
+            </layout>
+            <child>
+              <object class="tk.Button" id="button1">
+                <property name="background">#34495e</property>
+                <property name="borderwidth">0</property>
+                <property name="font">{Noto Sans} 12 {}</property>
+                <property name="foreground">#ecf0f1</property>
+                <property name="relief">flat</property>
+                <property name="takefocus">false</property>
+                <property name="text" translatable="yes">Gesture Recognition</property>
+                <layout manager="pack">
+                  <property name="ipady">10</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="side">top</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Button" id="button2">
+                <property name="background">#34495e</property>
+                <property name="font">{Noto Sans} 12 {}</property>
+                <property name="foreground">#ecf0f1</property>
+                <property name="relief">flat</property>
+                <property name="takefocus">false</property>
+                <property name="text" translatable="yes">Track a Santa Clause</property>
+                <layout manager="pack">
+                  <property name="ipady">10</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="side">top</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Button" id="button3">
+                <property name="background">#34495e</property>
+                <property name="font">{Noto Sans} 12 {}</property>
+                <property name="foreground">#ecf0f1</property>
+                <property name="relief">flat</property>
+                <property name="takefocus">true</property>
+                <property name="text" translatable="yes">Settings</property>
+                <layout manager="pack">
+                  <property name="ipady">10</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="side">top</property>
+                </layout>
+              </object>
+            </child>
+            <child>
+              <object class="tk.Button" id="button4">
+                <property name="background">#34495e</property>
+                <property name="font">{Noto Sans} 12 {}</property>
+                <property name="foreground">#ecf0f1</property>
+                <property name="relief">flat</property>
+                <property name="text" translatable="yes">Exit</property>
+                <layout manager="pack">
+                  <property name="ipady">10</property>
+                  <property name="pady">5</property>
+                  <property name="propagate">True</property>
+                  <property name="side">top</property>
+                </layout>
+              </object>
+            </child>
+          </object>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
