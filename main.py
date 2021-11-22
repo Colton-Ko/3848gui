@@ -1,7 +1,8 @@
 import pathlib
+import pygubu
 import tkinter as tk
 import tkinter.ttk as ttk
-import pygubu
+from gesreg import inference
 
 PROJECT_PATH = pathlib.Path(__file__).parent
 PROJECT_UI = PROJECT_PATH / "buttons.ui"
@@ -9,25 +10,58 @@ PROJECT_UI = PROJECT_PATH / "buttons.ui"
 
 class ButtonsApp:
     def __init__(self, master=None):
-        self.builder = builder = pygubu.Builder()
-        builder.add_resource_path(PROJECT_PATH)
-        builder.add_from_file(PROJECT_UI)
-        self.mainwindow = builder.get_object('toplevel1', master)
-        builder.connect_callbacks(self)
+        # build ui
+        self.toplevel1 = tk.Tk() if master is None else tk.Toplevel(master)
+        self.mainwindow = tk.Frame(self.toplevel1)
+        self.label1 = tk.Label(self.mainwindow)
+        self.label1.configure(background='#ecf0f1', font='{Noto Sans} 16 {}', foreground='#2c3e50', text='ELEC3848 Project Demo')
+        self.label1.pack(anchor='center', pady='20', side='top')
+        self.label2 = tk.Label(self.mainwindow)
+        self.label2.configure(background='#ecf0f1', font='{Noto Sans} 12 {}', foreground='#2c3e50', text='Click on the desired feature to demonstrate.')
+        self.label2.pack(pady='7', side='top')
+        self.frame2 = tk.Frame(self.mainwindow)
+        self.button1 = tk.Button(self.frame2)
+        self.button1.configure(background='#34495e', font='{Noto Sans} 12 {}', foreground='#ecf0f1', relief='flat')
+        self.button1.configure(takefocus=False, text='Gesture Recognition')
+        self.button1.pack(ipady='10', pady='5', side='top')
+        self.button1.bind('<1>', self.btn1_callback, add='')
+        self.button2 = tk.Button(self.frame2)
+        self.button2.configure(background='#34495e', font='{Noto Sans} 12 {}', foreground='#ecf0f1', relief='flat')
+        self.button2.configure(text='Start web server')
+        self.button2.pack(ipady='10', pady='5', side='top')
+        self.button2.bind('<2>', self.btn2_callback, add='')
+        self.button3 = tk.Button(self.frame2)
+        self.button3.configure(background='#34495e', font='{Noto Sans} 12 {}', foreground='#ecf0f1', text='Exit')
+        self.button3.pack(ipady='10', pady='5', side='top')
+        self.button3.pack_propagate(0)
+        self.button3.bind('<1>', self.btn3_callback, add='')
+        self.frame2.configure(background='#ecf0f1', height='200', width='200')
+        self.frame2.pack(pady='15', side='top')
+        self.mainwindow.configure(background='#ecf0f1', cursor='arrow', height='480', width='640')
+        self.mainwindow.pack(side='top')
+        self.mainwindow.pack_propagate(0)
+        self.toplevel1.configure(height='480', width='640')
+        self.toplevel1.geometry('640x480')
+        self.toplevel1.maxsize(480, 640)
+        self.toplevel1.minsize(480, 640)
+        self.toplevel1.resizable(False, False)
+        self.toplevel1.title('ELEC3848 Proejct Demo')
+
+        # Main widget
+        self.mainwindow = self.toplevel1
     
     def run(self):
         self.mainwindow.mainloop()
 
-    def btn1_callback()(self, event=None):
+    def btn1_callback(self, event=None):
+        inference()
         pass
 
-    def (self, event=None):
+    def btn2_callback(self, event=None):
         pass
 
-    def btn2_callback()(self, event=None):
-        pass
-
-    def btn3_callback()(self, event=None):
+    def btn3_callback(self, event=None):
+        quit()
         pass
 
 
