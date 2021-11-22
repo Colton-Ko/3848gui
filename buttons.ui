@@ -63,7 +63,7 @@
                 <property name="relief">flat</property>
                 <property name="takefocus">false</property>
                 <property name="text" translatable="yes">Gesture Recognition</property>
-                <bind add="" handler="inference" sequence="&lt;1&gt;" />
+                <bind sequence="&lt;1&gt;" handler="btn1_callback()" add="" />
                 <layout manager="pack">
                   <property name="ipady">10</property>
                   <property name="pady">5</property>
@@ -73,14 +73,14 @@
               </object>
             </child>
             <child>
-              <object class="tk.Button" id="button5">
+              <object class="tk.Button" id="button2">
                 <property name="background">#34495e</property>
                 <property name="font">{Noto Sans} 12 {}</property>
                 <property name="foreground">#ecf0f1</property>
                 <property name="relief">flat</property>
                 <property name="text" translatable="yes">Start web server</property>
-                <bind add="" handler="" sequence="" />
-                <bind add="" handler="" sequence="" />
+                <bind sequence="" handler="" add="" />
+                <bind sequence="&lt;2&gt;" handler="btn2_callback()" add="" />
                 <layout manager="pack">
                   <property name="ipady">10</property>
                   <property name="pady">5</property>
@@ -90,11 +90,12 @@
               </object>
             </child>
             <child>
-              <object class="tk.Button" id="button6">
+              <object class="tk.Button" id="button3">
                 <property name="background">#34495e</property>
                 <property name="font">{Noto Sans} 12 {}</property>
                 <property name="foreground">#ecf0f1</property>
                 <property name="text" translatable="yes">Exit</property>
+                <bind sequence="&lt;1&gt;" handler="btn3_callback()" add="" />
                 <layout manager="pack">
                   <property name="ipady">10</property>
                   <property name="pady">5</property>
