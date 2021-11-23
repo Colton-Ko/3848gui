@@ -13,10 +13,15 @@ import torch.onnx
 from PIL import Image, ImageOps
 import tvm.contrib.graph_runtime as graph_runtime
 from mobilenet_v2_tsm import MobileNetV2
+import serial
+import sys
+from os import path
+import simpleaudio as sa
 
 SOFTMAX_THRES = 0
 HISTORY_LOGIT = True
 REFINE_OUTPUT = True
+
 
 def torch2tvm_module(torch_module: torch.nn.Module, torch_inputs: Tuple[torch.Tensor, ...], target):
     torch_module.eval()
@@ -227,6 +232,65 @@ catigories = [
     "Zooming Out With Two Fingers"  # 26
 ]
 
+catigories_instruction = {
+    0:'X',
+    1:'X',
+    2:'X',
+    3:'X',
+    4:'X',
+    5:'X',
+    6:'X',
+    7:'X',
+    8:'X',
+    9:'X',
+    10:'X',
+    11:'X',
+    12:'X',
+    13:'X',
+    14:'Z',
+    15:'E',
+    16:'d',
+    17:'B',
+    18:'A',
+    19:'X',
+    20:'X',
+    21:'X',
+    22:'X',
+    23:'X',
+    24:'X',
+    25:'X',
+    26:'X'
+}
+
+audio_file = {
+    0:'X',
+    1:'X',
+    2:'X',
+    3:'X',
+    4:'X',
+    5:'X',
+    6:'X',
+    7:'X',
+    8:'X',
+    9:'X',
+    10:'X',
+    11:'X',
+    12:'X',
+    13:'X',
+    14:'audio/stop.wav',
+    15:'audio/mb.wav',
+    16:'audio/shl.wav',
+    17:'audio/shr.wav',
+    18:'audio/mf.wav',
+    19:'audio/ldown.wav',
+    20:'audio/lup.wav',
+    21:'X',
+    22:'X',
+    23:'X',
+    24:'X',
+    25:'X',
+    26:'X'
+}
 
 n_still_frame = 0
 
@@ -259,7 +323,20 @@ def process_output(idx_, history):
 
 
 WINDOW_NAME = 'Video Gesture Recognition'
-def inference():
+def main():
+    flag_prev = 0
+    #Detect arduino serial path (Cater for different USB-Serial Chips)
+    if path.exists("/dev/ttyACM0"):
+        arduino = serial.Serial(port = '/dev/ttyACM0',baudrate = 115200)
+    elif path.exists("/dev/ttyUSB0"):
+        arduino = serial.Serial(port = '/dev/ttyUSB0',baudrate = 115200)
+    else:
+        print("Please plug in the Arduino")
+        exit()
+    if not(arduino.isOpen()):
+        arduino.open()
+
+
     print("Open camera...")
     cap_device = "nvarguscamerasrc ! video/x-raw(memory:NVMM), width=(int)640, height=(int)480, format=(string)NV12, framerate=(fraction)60/1 ! nvvidconv flip-method=2 ! video/x-raw, width=(int)640, height=(int)480, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink"
     cap = cv2.VideoCapture(cap_device)
@@ -307,7 +384,7 @@ def inference():
     while True:
         i_frame += 1
         _, img = cap.read()  # (480, 640, 3) 0 ~ 255
-        cv2.imshow(WINDOW_NAME, img)
+
         if i_frame % 2 == 0:  # skip every other frame to obtain a suitable frame rate
             t1 = time.time()
             img_tran = transform([Image.fromarray(img).convert('RGB')])
@@ -340,10 +417,21 @@ def inference():
             idx, history = process_output(idx_, history)
 
             t2 = time.time()
+             # prediction printed here
             print(f"{index} {catigories[idx]}")
-
-
             current_time = t2 - t1
+            letter = catigories_instruction[idx]
+            if (flag_prev != idx and idx in (14,15,16,17,18,19,20)):
+                wave_obj = sa.WaveObject.from_wave_file(audio_file[idx])
+                player = wave_obj.play()
+                flag_prev = idx
+            try:
+                if (letter != 'X'):
+                    print(f"Sending {letter} to arduino")
+                    arduino.write(letter.encode())
+
+            except Exception:
+                pass
 
         img = cv2.resize(img, (640, 480))
         img = img[:, ::-1]
@@ -388,4 +476,4 @@ def inference():
     cv2.destroyAllWindows()
 
 
-# main()
+main()
